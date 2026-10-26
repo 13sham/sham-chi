@@ -1,0 +1,332 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sham · Young Developer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Sham, a young developer who makes websites and Discord bots.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow black column. Big serif statement, hard numbers under it, a terminal as the single playful object, then plain sections with hairlines. Off-white is the only accent, used on small pixel blocks as a nod to the block game. */
+:root{
+  --bg:#050505;--surface:#0c0c0c;--fg:#f1f1ee;--mute:#8d8d88;--line:#1e1e1e;--line2:#2c2c2c;--grass:#e9e9e4;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --pix:"Pixelify Sans",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p,ul{margin:0;padding:0}
+ul{list-style:none}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+::selection{background:var(--fg);color:var(--bg)}
+:focus-visible{outline:2px solid var(--grass);outline-offset:3px}
+.w{max-width:1040px;margin-inline:auto;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px))}
+.cap{font:400 11px/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--mute)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:20}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:19;background:rgba(5,5,5,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;font-size:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600}
+.mk{width:26px;height:26px;display:grid;place-items:center;background:var(--grass);color:#050505;font:600 15px/1 var(--pix);box-shadow:inset -2px -2px 0 rgba(0,0,0,.25),inset 2px 2px 0 rgba(255,255,255,.25)}
+.nl{display:flex;align-items:center;gap:clamp(14px,3vw,28px)}
+.nl a{color:var(--mute);transition:color .2s}
+.nl a:not(.gh){position:relative}
+.nl a:not(.gh)::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--fg);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nl a:not(.gh):hover{color:var(--fg)}.nl a:not(.gh):hover::after{transform:scaleX(1)}
+.brand:hover .mk{animation:jig .5s steps(5)}
+@keyframes jig{25%{transform:translateY(-4px) rotate(-6deg)}50%{transform:translateY(0)}75%{transform:translateY(-2px) rotate(5deg)}}
+.nl .gh{color:var(--fg);border:1px solid var(--line2);padding:6px 12px;transition:border-color .2s}
+.nl .gh:hover{border-color:var(--fg)}
+
+/* hero */
+.hero{padding-block:clamp(64px,12vw,132px) clamp(40px,6vw,72px)}
+h1{font:400 clamp(56px,10.5vw,124px)/.95 var(--serif);letter-spacing:-.035em;max-width:11ch;text-wrap:balance}
+h1 .hw{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .06em .14em 0;margin:0 -.06em -.14em 0}
+h1 .hw>span{display:inline-block;animation:up .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*110ms + 120ms)}
+h1 em{font-style:italic}
+h1 em .sh{background:linear-gradient(100deg,var(--mute) 42%,#fff 50%,var(--mute) 58%) 100% 0/250% 100% no-repeat;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:up .9s cubic-bezier(.2,.8,.2,1) both,shim 5.5s ease-in-out 1.6s infinite;animation-delay:calc(var(--i)*110ms + 120ms),1.6s}
+@keyframes up{from{transform:translateY(105%)}to{transform:none}}
+@keyframes shim{0%{background-position:100% 0}55%,100%{background-position:0 0}}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero .sub,.cta,.nums{animation:fade .8s cubic-bezier(.2,.8,.2,1) both}
+.hero .sub{animation-delay:.55s}.cta{animation-delay:.7s}.nums{animation-delay:.85s}
+.hero .sub{max-width:30em;margin-top:26px;color:var(--mute);font-size:18px}
+.hero .sub b{color:var(--fg);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.b{display:inline-block;padding:12px 22px;border:1px solid var(--fg);font-size:14px;font-weight:600;background:linear-gradient(var(--fg),var(--fg)) no-repeat 0 0/0 100%;transition:background-size .35s cubic-bezier(.2,.8,.2,1),color .25s,border-color .25s}
+.b:hover{background-size:100% 100%;color:var(--bg)}
+.b.f{background:linear-gradient(var(--grass),var(--grass)) no-repeat 0 0/0 100%,var(--fg);color:var(--bg)}
+.b.f:hover{background-size:100% 100%,100% 100%;border-color:var(--grass);color:#050505}
+.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:clamp(48px,7vw,80px);border-block:1px solid var(--line)}
+.stat{padding:30px 0 30px;display:grid;gap:10px;align-content:start}
+.stat+.stat{padding-left:clamp(16px,4vw,40px);border-left:1px solid var(--line)}
+.stat strong{font:400 clamp(52px,8.5vw,96px)/1 var(--serif);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.blk{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;max-width:420px}
+.blk i{width:11px;height:11px;background:var(--grass);box-shadow:inset -2px -2px 0 rgba(0,0,0,.28),inset 2px 2px 0 rgba(255,255,255,.22)}
+.blk.big i{width:18px;height:18px}
+.stat .key{margin-top:4px}
+
+/* terminal */
+.hg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,430px);gap:clamp(32px,5vw,64px);align-items:end}
+.hl{min-width:0}
+.glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(520px circle at var(--mx,72%) var(--my,22%),rgba(255,255,255,.07),transparent 70%)}
+.mq{overflow:hidden;border-top:1px solid var(--line);padding:18px 0;margin-top:clamp(40px,6vw,72px)}
+.mt{display:flex;width:max-content;animation:mq 46s linear infinite}
+.mt span{font:400 13px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--mute);white-space:nowrap;display:flex;align-items:center}
+.mt span::after{content:"";width:8px;height:8px;margin:0 26px;background:var(--grass);opacity:.7}
+.mq:hover .mt{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.tm{border:1px solid var(--line2);background:rgba(12,12,12,.9);font:400 13px/1.6 var(--mono);box-shadow:0 30px 80px -30px rgba(255,255,255,.06)}
+.tbar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.tbar i{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.tbar span{margin-left:8px;color:var(--mute)}
+.tb{height:232px;overflow:auto;padding:14px;color:#cfcfca;overscroll-behavior:contain}
+.tb div{white-space:pre-wrap;overflow-wrap:anywhere}
+.tb .c{color:var(--fg)}
+.tin{display:flex;gap:8px;padding:10px 14px 12px;border-top:1px solid var(--line)}
+.tin span{color:var(--grass);white-space:nowrap}
+.tin input{flex:1;min-width:0;background:none;border:0;outline:0;padding:0}
+.tin:focus-within{background:rgba(255,255,255,.02)}
+
+/* sections */
+section{position:relative;overflow-x:clip;padding-block:clamp(56px,9vw,104px)}
+section::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.row>.cap::after{content:"";display:block;width:28px;height:2px;background:var(--grass);margin-top:10px;transition:width .7s .25s cubic-bezier(.2,.8,.2,1)}
+.js section:not(.in)::before{transform:scaleX(0)}
+.js section:not(.in) .row>.cap::after{width:0}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .wd{opacity:.12;transition:opacity .6s;transition-delay:calc(var(--i)*60ms)}
+.js .in .wd{opacity:1}
+.js .blk:not(.in) i{transform:scale(0);opacity:0}
+.blk i{transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s;transition-delay:var(--d,0s)}
+.js .pips{background-size:0 100%,100% 100%}
+.pips{background:linear-gradient(90deg,var(--grass),var(--grass)) 0 0/calc(var(--l)*20%) 100% no-repeat,var(--line2);transition:background-size .9s steps(5,end);transition-delay:var(--d,0s)}
+.js .in .pips{background-size:calc(var(--l)*20%) 100%,100% 100%}
+.orbit{position:relative;width:360px;max-width:100%;aspect-ratio:1;margin:0 auto clamp(36px,5vw,56px)}
+.orbit .oc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2}
+.orbit .oc .mk{width:46px;height:46px;font-size:26px}
+.ring{position:absolute;left:50%;top:50%;width:0;height:0;animation:spin var(--t) linear infinite}
+.ring::before{content:"";position:absolute;left:calc(var(--r)*-1);top:calc(var(--r)*-1);width:calc(var(--r)*2);height:calc(var(--r)*2);border:1px dashed var(--line2);border-radius:50%}
+.r1{--r:90px;--t:34s}.r2{--r:140px;--t:58s;animation-direction:reverse}
+.it{position:absolute;left:0;top:0;transform:rotate(var(--a)) translateX(var(--r))}
+.it b{display:block;transform:translate(-50%,-50%) rotate(calc(var(--a)*-1))}
+.it b span{display:block;padding:4px 9px;border:1px solid var(--line2);background:var(--surface);font:400 11px/1.3 var(--mono);white-space:nowrap;animation:spin var(--t) linear infinite reverse}
+.r2 .it b span{animation-direction:normal}
+.orbit:hover .ring,.orbit:hover .it b span{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
+.row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(20px,4vw,48px)}
+.row>.cap{padding-top:10px}
+.lead{font:400 clamp(30px,4.6vw,52px)/1.12 var(--serif);letter-spacing:-.02em;max-width:20ch;text-wrap:balance}
+.lead i{color:var(--mute)}
+.wk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:clamp(28px,4vw,44px);background:var(--line);border:1px solid var(--line)}
+.wk article{background:var(--bg);padding:26px 22px 24px;display:grid;gap:10px;align-content:start;transition:background .25s}
+.wk article:hover{background:var(--surface)}
+.wk h3{font:400 clamp(28px,3.4vw,38px)/1.05 var(--serif);letter-spacing:-.02em}
+.wk p{color:var(--mute);font-size:15px;min-height:3.3em}
+.wk ul{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.wk li{font:400 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line2);padding:6px 9px;color:var(--fg)}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,48px)}
+.skills h3{margin-bottom:6px;font-weight:400}
+.skills li{transition:padding .25s,background .25s;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.skills li:hover{padding-left:10px;background:rgba(255,255,255,.035)}
+.pips{flex:none;width:58px;height:8px;-webkit-mask:repeating-linear-gradient(90deg,#000 0 10px,transparent 10px 12px);mask:repeating-linear-gradient(90deg,#000 0 10px,transparent 10px 12px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+h2{font:400 clamp(36px,6vw,72px)/1.02 var(--serif);letter-spacing:-.03em;text-wrap:balance}
+.contact p{color:var(--mute);margin-top:14px;max-width:32em}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-top:28px}
+.mail a.addr{font:400 clamp(18px,3.4vw,26px)/1.2 var(--mono);overflow-wrap:anywhere;border-bottom:1px solid var(--line2);padding-bottom:2px;transition:background-size .4s}
+.mail a.addr:hover{background-size:100% 1px}
+.cp{background:none;border:1px solid var(--line2);padding:7px 14px;font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:border-color .2s,color .2s}
+.cp:hover{border-color:var(--fg)}
+.cp.ok{border-color:var(--grass);color:var(--grass);animation:pop .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(.88)}to{transform:none}}
+.tin input{caret-color:var(--grass)}
+.links{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:36px}
+.links a{display:inline-flex;align-items:baseline;gap:10px;color:var(--fg)}
+.links a b{font-weight:500;border-bottom:1px solid var(--line2);transition:border-color .2s}
+.links a:hover b{border-color:var(--fg)}
+.mail a.addr{background:linear-gradient(var(--fg),var(--fg)) no-repeat 0 100%/0 1px}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px calc(36px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+footer a:hover{color:var(--fg)}
+
+@media (max-width:980px){.hg{grid-template-columns:1fr}}
+@media (max-width:820px){
+  .row{grid-template-columns:1fr;gap:18px}
+  .row>.cap{padding-top:0}
+  .skills{grid-template-columns:1fr}
+  .wk{grid-template-columns:1fr}
+  .wk p{min-height:0}
+  .nums{grid-template-columns:1fr}
+  .stat+.stat{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+}
+@media (max-width:420px){.nl{gap:12px}.brand span.n{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.glow{display:none}*,*::before,*::after{animation:none!important;transition:none!important}.js .rv,.js .wd,.js .blk i{opacity:1!important;transform:none!important}.js section::before{transform:none!important}.js .row>.cap::after{width:28px!important}.js .pips{background-size:calc(var(--l)*20%) 100%,100% 100%!important}h1 em .sh{-webkit-text-fill-color:var(--mute);color:var(--mute);background:none}}
+</style>
+
+<header><div class="w"><nav aria-label="Main">
+  <a class="brand" href="#top" aria-label="Sham, back to top"><span class="mk" aria-hidden="true">S</span><span class="n">Sham</span></a>
+  <div class="nl"><a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a class="gh" href="https://github.com/y2k-sham" target="_blank" rel="noopener">GitHub ↗</a></div>
+</nav></div></header>
+
+<div class="glow" id="glow" aria-hidden="true"></div>
+<main id="top">
+  <div class="w hero">
+    <div class="hg"><div class="hl">
+    <h1><span class="hw"><span style="--i:0">A</span></span> <span class="hw"><span style="--i:1">young</span></span> <em class="hw"><span class="sh" style="--i:2">developer.</span></em></h1>
+    <p class="sub"><b>Hi, I'm Sham.</b> I make websites and Discord bots, and I take on freelance work.</p>
+    <div class="cta"><a class="b f" href="#contact">Get in touch</a><a class="b" href="#skills">See what I use</a></div>
+    </div>
+    <div class="tm" id="tm">
+    <div class="tbar"><i></i><i></i><i></i><span>sham@dev: ~</span></div>
+    <div class="tb" id="tb"></div>
+    <label class="tin"><span>sham@dev:~$</span><input id="tin" placeholder="try: help" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Terminal input"></label>
+  </div>
+    </div>
+    <div class="nums">
+      <div class="stat"><span class="cap">Projects worked on</span><strong data-n="62">62</strong><div class="blk" id="bp" aria-hidden="true"></div><span class="cap key">1 block = 1 project</span></div>
+      <div class="stat"><span class="cap">Processed</span><strong data-n="21000" data-p="$">$21,000</strong><div class="blk big" id="bm" aria-hidden="true"></div><span class="cap key">1 block = $1,000</span></div>
+    </div>
+  </div>
+
+  <div class="mq" aria-hidden="true"><div class="mt"><span>JavaScript</span><span>TypeScript</span><span>Node.js</span><span>Discord.js</span><span>PostgreSQL</span><span>Python</span><span>Figma</span><span>REST APIs</span><span>Payment flows</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span><span>Discord.js</span><span>PostgreSQL</span><span>Python</span><span>Figma</span><span>REST APIs</span><span>Payment flows</span></div></div>
+
+  <section id="about"><div class="w"><div class="row">
+    <span class="cap">About</span>
+    <div>
+      <p class="lead rv">A young developer with an obsession with <i>chess</i> who also plays a <i>block game.</i></p>
+    </div>
+  </div></div></section>
+
+  <section id="work"><div class="w"><div class="row">
+    <span class="cap">Work</span>
+    <div>
+      <h2 class="rv">What I build.</h2>
+      <div class="wk rv">
+        <article><span class="cap">Bots</span><h3>Discord bots</h3><p>Bots that automate things for Discord servers.</p><ul><li>Node.js</li><li>Discord.js</li></ul></article>
+        <article><span class="cap">Web</span><h3>Websites</h3><p>Design in Figma, then built and shipped with HTML, CSS and JavaScript.</p><ul><li>Figma</li><li>JavaScript</li><li>CSS</li></ul></article>
+        <article><span class="cap">Money</span><h3>Payment flows</h3><p>Checkout and payment handling, part of the $21,000 processed so far.</p><ul><li>REST APIs</li><li>PostgreSQL</li></ul></article>
+      </div>
+    </div>
+  </div></div></section>
+
+  <section id="skills"><div class="w"><div class="row">
+    <span class="cap">Skills</span>
+    <div>
+    <div class="orbit rv" aria-hidden="true"><div class="oc"><span class="mk">S</span></div>
+      <div class="ring r1"><span class="it" style="--a:0deg"><b><span>HTML/CSS</span></b></span><span class="it" style="--a:120deg"><b><span>Figma</span></b></span><span class="it" style="--a:240deg"><b><span>SQL</span></b></span></div>
+      <div class="ring r2"><span class="it" style="--a:0deg"><b><span>JavaScript</span></b></span><span class="it" style="--a:72deg"><b><span>Node.js</span></b></span><span class="it" style="--a:144deg"><b><span>PostgreSQL</span></b></span><span class="it" style="--a:216deg"><b><span>Python</span></b></span><span class="it" style="--a:288deg"><b><span>TypeScript</span></b></span></div></div>
+    <div class="skills rv">
+      <div><h3 class="cap">Languages</h3><ul>
+        <li>JavaScript<span class="pips" style="--l:4.5"></span><span class="sr">Advanced</span></li>
+        <li>HTML and CSS<span class="pips" style="--l:5"></span><span class="sr">Advanced</span></li>
+        <li>TypeScript<span class="pips" style="--l:3"></span><span class="sr">Working</span></li>
+        <li>SQL<span class="pips" style="--l:3"></span><span class="sr">Working</span></li>
+        <li>Python<span class="pips" style="--l:2"></span><span class="sr">Familiar</span></li></ul></div>
+      <div><h3 class="cap">Backend</h3><ul>
+        <li>Node.js<span class="pips" style="--l:4"></span><span class="sr">Advanced</span></li>
+        <li>REST APIs<span class="pips" style="--l:4"></span><span class="sr">Advanced</span></li>
+        <li>Payment flows<span class="pips" style="--l:4"></span><span class="sr">Advanced</span></li>
+        <li>PostgreSQL<span class="pips" style="--l:3"></span><span class="sr">Working</span></li></ul></div>
+      <div><h3 class="cap">Design</h3><ul>
+        <li>Figma<span class="pips" style="--l:4"></span><span class="sr">Advanced</span></li>
+        <li>UI and UX<span class="pips" style="--l:4"></span><span class="sr">Advanced</span></li>
+        <li>Typography<span class="pips" style="--l:4"></span><span class="sr">Advanced</span></li>
+        <li>Branding<span class="pips" style="--l:3"></span><span class="sr">Working</span></li></ul></div>
+    </div>
+    </div>
+  </div></div></section>
+
+  <section id="contact" class="contact"><div class="w"><div class="row">
+    <span class="cap">Contact</span>
+    <div>
+      <h2>Have a project in mind?</h2>
+      <p>Email me and I usually reply within a day.</p>
+      <div class="mail"><a class="addr" href="mailto:shoryakw@gmail.com">shoryakw@gmail.com</a><button class="cp" id="cp" type="button">Copy</button></div>
+      <div class="links">
+        <a href="https://github.com/y2k-sham" target="_blank" rel="noopener"><span class="cap">GitHub</span><b>@y2k-sham ↗</b></a>
+        <a href="https://guns.lol/13sham" target="_blank" rel="noopener"><span class="cap">guns.lol</span><b>/13sham ↗</b></a>
+      </div>
+    </div>
+  </div></div></section>
+</main>
+
+<div class="w"><footer class="cap"><span>© 2026 Sham</span><a href="#top">Back to top ↑</a></footer></div>
+
+<script>
+document.documentElement.classList.add("js");
+(function(){
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function $(i){return document.getElementById(i)}
+
+/* count-up on the two headline numbers; final value is already in the markup */
+function cu(el){var end=+el.dataset.n,p=el.dataset.p||'',t0=null;
+ function f(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1400),e=1-Math.pow(1-k,3);el.textContent=p+Math.round(end*e).toLocaleString('en-US');if(k<1)requestAnimationFrame(f)}
+ requestAnimationFrame(f)}
+var ns=[].slice.call(document.querySelectorAll('[data-n]'));
+if(!rm&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){cu(x.target);io.unobserve(x.target)}})},{threshold:.6});ns.forEach(function(e){io.observe(e)})}
+
+/* terminal */
+var tb=$('tb'),inp=$('tin'),tm=$('tm'),P='sham@dev:~$ ',H=[],hi=0,busy=true;
+function add(t,c){var d=document.createElement('div');if(c)d.className=c;d.textContent=t;tb.appendChild(d);tb.scrollTop=tb.scrollHeight;return d}
+var A=['projects    62 worked on','processed   $21,000'];
+var O={
+ help:['commands: help, whoami, ls, cat, skills, contact, links, neofetch, date, clear'],
+ whoami:['sham, a young developer with an obsession with chess who also plays a block game.'],
+ ls:['discord-bot/  README.md  achievements.txt'],
+ skills:['js, html/css, node.js, typescript, sql, postgres, python, figma'],
+ contact:['email   shoryakw@gmail.com','github  github.com/y2k-sham'],
+ links:['github    github.com/y2k-sham','guns.lol   guns.lol/13sham'],
+ neofetch:['sham@dev','---------','Host:      chess + a block game','Projects:  62','Status:    available for work'],
+ date:function(){return [new Date().toString()]}};
+function out(l){l.forEach(function(x){add(x)})}
+function run(raw,echo){var c=raw.trim();if(echo!==false)add(P+raw,'c');if(!c)return;var p=c.split(/\s+/),k=p[0].toLowerCase();
+ if(k==='clear'){tb.innerHTML='';return}
+ if(k==='cat'){var f=(p[1]||'').toLowerCase();if(f==='achievements.txt')out(A);else if(f==='readme.md')out(O.whoami);else add('cat: '+(p[1]||'')+': No such file or directory');return}
+ if(k==='echo'){add(c.slice(5).replace('$STATUS','available for work'));return}
+ if(k==='sudo'){add('nice try. you are not root here.');return}
+ if(O[k]){var o=O[k];out(typeof o==='function'?o():o);return}
+ add('command not found: '+k+'. type help')}
+function ty(cmd,cb){var d=add(P,'c'),i=0;(function n(){if(i<cmd.length){d.textContent=P+cmd.slice(0,++i);setTimeout(n,rm?0:38)}else{setTimeout(function(){run(cmd,false);setTimeout(cb,rm?0:420)},220)}})()}
+function intro(){var q=['whoami','ls','cat achievements.txt','echo $STATUS'],i=0;(function nx(){if(i<q.length)ty(q[i++],nx);else{busy=false;add('type help to see commands.')}})()}
+inp.addEventListener('keydown',function(e){
+ if(e.key==='Enter'){if(busy)return;var v=inp.value;inp.value='';if(v.trim())H.push(v);hi=H.length;run(v)}
+ else if(e.key==='ArrowUp'){e.preventDefault();if(hi>0)inp.value=H[--hi]||''}
+ else if(e.key==='ArrowDown'){e.preventDefault();hi=Math.min(H.length,hi+1);inp.value=H[hi]||''}});
+tb.addEventListener('click',function(){inp.focus({preventScroll:true})});
+if(rm||!('IntersectionObserver' in window)){intro()}else{var i3=new IntersectionObserver(function(es){if(es[0].isIntersecting){i3.disconnect();intro()}},{threshold:.35});i3.observe(tm)}
+
+/* soft light that follows the pointer */
+var gl=$('glow');
+if(!rm&&matchMedia('(hover:hover) and (pointer:fine)').matches){var gx=innerWidth*.72,gy=innerHeight*.22,gtx=gx,gty=gy;
+ addEventListener('pointermove',function(e){gtx=e.clientX;gty=e.clientY},{passive:true});
+ (function l(){gx+=(gtx-gx)*.08;gy+=(gty-gy)*.08;gl.style.setProperty('--mx',gx.toFixed(0)+'px');gl.style.setProperty('--my',gy.toFixed(0)+'px');requestAnimationFrame(l)})()}
+
+/* blocks: 62 projects, 21 x $1,000 */
+function blocks(id,n){var el=$(id);for(var i=0;i<n;i++){var b=document.createElement('i');b.style.setProperty('--d',(i*22)+'ms');el.appendChild(b)}}
+blocks('bp',62);blocks('bm',21);
+
+/* reveal on scroll */
+var lead=document.querySelector('.lead'),wi=0;
+(function wrap(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(w){if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(' '))}else{var o=document.createElement('span');o.className='wd';o.style.setProperty('--i',wi++);o.textContent=w;f.appendChild(o)}});n.replaceChild(f,c)}else if(c.nodeType===1){wrap(c)}})})(lead);
+document.querySelectorAll('.skills li .pips').forEach(function(p,i){p.style.setProperty('--d',((i%5)*120+250)+'ms')});
+var tg=[].slice.call(document.querySelectorAll('section,.rv,.blk'));
+if(rm||!('IntersectionObserver' in window)){tg.forEach(function(e){e.classList.add('in')})}
+else{var io4=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io4.unobserve(x.target)}})},{threshold:.15});tg.forEach(function(e){io4.observe(e)})}
+
+/* copy email */
+var cp=$('cp');
+cp.addEventListener('click',function(){
+ function done(){cp.textContent='Copied';cp.classList.add('ok');setTimeout(function(){cp.textContent='Copy';cp.classList.remove('ok')},1400)}
+ function fb(){var a=document.querySelector('.addr'),r=document.createRange();r.selectNodeContents(a);var x=getSelection();x.removeAllRanges();x.addRange(r);try{document.execCommand('copy')}catch(e){}done()}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText('shoryakw@gmail.com').then(done,fb);else fb()});
+})();
+</script>
+
+</body></html>
